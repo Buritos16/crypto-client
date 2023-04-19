@@ -1,0 +1,73 @@
+.trading {
+    display: flex;
+    background-color: #15161b;
+    flex-direction: column;
+}
+
+.trading-header {
+    width: 93%;
+    height: 60px;
+    display: flex;
+    margin-top: 20px;
+    background-color: #272a31;
+    border-radius: 5px;
+    justify-content: flex-start;
+    align-items: center;
+    align-self: center;
+    color: white;
+}
+
+.last-price-text, .h-change-text, .h-high-text, .h-low-text, .h-volume-text {
+    color: #979aa1;
+    font-weight: bold;
+    font-size: 12px;
+    height: 13px;
+    margin-left: 1px;
+}
+
+.last-price-number, .h-change-number {
+    color: #e76565;
+    font-weight: bold;
+}
+
+.h-high-number, .h-low-number, .h-volume-number {
+    font-weight: bold;
+}
+
+.last-price-usd, .h-volume-usd {
+    font-size: 11px;
+    margin-top: 14px;
+}
+
+.line {
+    border-left: 1px solid #979aa1;
+    height: 35px;
+    margin: 0 28px;
+}
+
+.trading-main {
+    display: flex;
+    width: 93%;
+    align-self: center;
+    margin-top: 10px;
+}
+
+.order-book {
+    padding: 5px 5px 5px 10px;
+    width: 26%;
+    border-radius: 5px;
+    display: flex;
+    background-color: #272a31;
+    flex-direction: column;
+    font-weight: bold;
+}
+
+.order-book-title {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10px;
+    margin-left: 1px;
+    margin-top: 10px;
+    font-size: 11px;
+    color: #979aa1;
+}
