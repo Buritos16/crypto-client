@@ -1,0 +1,90 @@
+.invest {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    margin-bottom: 100px;
+}
+
+.invest-main {
+    display: flex;
+    border-radius: 7px;
+    width: 75%;
+    margin-top: 30px;
+    justify-content: space-between;
+}
+
+.invest-item {
+    width: 24%;
+    background-color: #272a31;
+    border-radius: 7px;
+    padding: 10px;
+}
+
+.invest-title1 {
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-weight: bold;
+    position: relative;
+    border: 1px solid transparent;
+    border-image: linear-gradient(105deg, rgba(0,194,255,1) 0%, rgba(255,239,0,1) 100%) 1;
+    border-radius: 7px;
+    background: rgb(0,194,255);
+    background: linear-gradient(105deg, rgba(0,194,255,0.1) 0%, rgba(255,239,0,0.1) 100%);
+}
+
+.invest-title2 {
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-weight: bold;
+    position: relative;
+    border: 1px solid transparent;
+    border-image: linear-gradient(105deg, rgb(211, 0, 86) 0%, rgb(139, 0, 253) 100%) 1;
+    border-radius: 7px;
+    background: rgb(211, 0, 86);
+    background: linear-gradient(105deg, rgb(211, 0, 86, 0.1) 0%, rgb(139, 0, 253, 0.1) 100%);
+}
+
+.invest-title3 {
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-weight: bold;
+    position: relative;
+    border: 1px solid transparent;
+    border-image: linear-gradient(105deg, rgb(255, 0, 221) 0%, rgb(255, 128, 0) 100%) 1;
+    border-radius: 7px;
+    background: rgb(255, 0, 221);
+    background: linear-gradient(105deg, rgb(255, 0, 221, 0.1) 0%, rgb(255, 128, 0, 0.1) 100%);
+}
+
+.invest-title4 {
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-weight: bold;
+    position: relative;
+    border: 1px solid transparent;
+    border-image: linear-gradient(105deg, rgb(162, 255, 0) 0%, rgba(255,239,0,1) 100%) 1;
+    border-radius: 7px;
+    background: rgb(221, 255, 0);
+    background: linear-gradient(105deg, rgb(162, 255, 0, 0.1) 0%, rgba(255,239,0, 0.1) 100%);
+}
+
+@media only screen and (max-width: 1200px) {
+    .invest-main {
+        flex-direction: column;
+        width: 95%;
+        align-items: center;
+    }
+    .invest-item {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}

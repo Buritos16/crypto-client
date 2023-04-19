@@ -1,0 +1,118 @@
+.swap-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.swap {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    background-color: #272a31;
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+}
+
+.swap-header {
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    padding: 30px 60px;
+    border: none;
+    background: linear-gradient(120deg, #1F4690 36%, #1b1d2a 36%);
+}
+
+.swap-header-text {
+    font-weight: bold;
+    font-size: 23px;
+}
+
+.swap-header-fees {
+    margin-left: auto;
+    color: #979aa1;
+    padding-top: 5px;
+    align-items: center;
+    display: flex;
+}
+
+.swap-header-fees-item {
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.swap-main {
+    background-color: #272a31;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+
+.swap-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+}
+
+.swap-button {
+    background-image: linear-gradient(to right, #1F4690 0%, #0090ff 51%, #1F4690 100%);
+    width: 100%;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    border: none;
+    cursor: pointer;
+}
+
+.swap-button:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+.swap-text {
+    width: 33%;
+    text-align: center;
+    color: #979aa1;
+    font-size: 13px;
+    margin: 15px auto 100px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .swap {
+        width: 95%;
+    }
+    .swap-text {
+        width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 100px;
+    }
+    .swap-header {
+        padding: 15px;
+        background: linear-gradient(120deg, #1F4690 48%, #1b1d2a 48%);
+    }
+
+    .swap-header-fees {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .swap-container {
+        width: 85%;
+    }
+}

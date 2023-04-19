@@ -1,0 +1,166 @@
+.invest-calc {
+    display: flex;
+    flex-direction: column;
+}
+
+.select-container {
+    position: relative;
+}
+
+.select {
+    z-index: 1;
+    color: #979aa1;
+    position: absolute;
+    margin-top: 2px;
+    height: 200px;
+    background-color: #1c1d23;
+    animation-name: scale-in;
+    animation-duration: 0.3s;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    width:100%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+.select::-webkit-scrollbar-track
+{
+    border: 1px solid #49494b;
+    background-color: #38393a;
+}
+
+.select::-webkit-scrollbar
+{
+    width: 4px;
+    background-color: #75777a;
+}
+
+.select::-webkit-scrollbar-thumb
+{
+    background-color: #e9e9ee;
+}
+
+
+.select-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.select-item:hover {
+    background-color: #424c59;
+}
+
+.arrow-select {
+    transition-duration: 0.3s;
+    margin-left: auto;
+}
+
+.arrow-select-reverse {
+    margin-left: auto;
+    transform: rotate(180deg);
+    transition-duration: 0.3s;
+}
+
+.select-header {
+    background-color: #1c1d23;
+    color: #979aa1;
+    align-items: center;
+    display: flex;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.coin-image {
+    margin-right: 10px;
+}
+
+.coin-name {
+    margin-right: 3px;
+}
+
+.invest-input {
+    background-color: #979aa1;
+    display: flex;
+    align-items: center;
+}
+
+.invest-input {
+    background-color: #15161b;
+    display: flex;
+    width: 100%;
+    border-radius: 3px;
+    padding: 10px 20px;
+    align-items: center;
+    cursor: text;
+}
+
+.convert-input-text {
+    width: 50%;
+    margin-left: 10px;
+    color: white;
+    font-size: 14px;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.invest-profit {
+    display: flex;
+    color: #979aa1;
+    margin-top: 15px;
+}
+
+.invest-button {
+    background-image: linear-gradient(to right, #F09819 0%, #EDDE5D  51%, #F09819  100%);
+    margin-top: 10px;
+    padding: 10px;
+    font-weight: bold;
+    transition: 1s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 7px;
+    border: none;
+    width: 100%;
+    display: block;
+    cursor: pointer;
+}
+.invest-button:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+
+
+
+
+
+@keyframes scale-in {
+    0% {
+        transform: scaleY(0);
+        transform-origin: 100% 0;
+        opacity: 1;
+    }
+    100% {
+        transform: scaleY(1);
+        transform-origin: 100% 0;
+        opacity: 1;
+    }
+}
+
+@keyframes scale {
+    0% {
+        transform: scaleY(0);
+        transform-origin: 100% 0;
+        opacity: 1;
+    }
+    100% {
+        transform: scaleY(1);
+        transform-origin: 100% 0;
+        opacity: 1;
+    }
+}

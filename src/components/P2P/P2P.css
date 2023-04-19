@@ -1,0 +1,160 @@
+.p2p {
+    display: flex;
+    margin: 40px 2% 100px;
+    justify-content: space-between;
+}
+
+.p2p-options {
+    background-color: #272a31;
+    width: 27%;
+    height: 100%;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.p2p-buttons {
+    border: 1px solid grey;
+    border-radius: 10px;
+    display: flex;
+}
+
+.p2p-buttons-text1, .p2p-buttons-text2 {
+    width: 50%;
+    text-align: center;
+    font-weight: bold;
+    padding: 12px;
+    cursor: pointer;
+}
+
+.p2p-buttons-text1 {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.p2p-buttons-text2 {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.p2p-select-button {
+    cursor: pointer;
+}
+
+
+
+.checkbox-wrapper .ikx {
+    margin-top: 20%;
+    appearance: none;
+    background-color: #7d8085;
+    border-radius: 72px;
+    border-style: none;
+    flex-shrink: 0;
+    height: 25px;
+    position: relative;
+    width: 50px;
+}
+
+.checkbox-wrapper .ikx::before {
+    bottom: -6px;
+    content: "";
+    left: -6px;
+    position: absolute;
+    right: -6px;
+    top: -6px;
+}
+
+.checkbox-wrapper .ikx,
+.checkbox-wrapper .ikx::after {
+    transition: all 100ms ease-out;
+}
+
+.checkbox-wrapper .ikx::after {
+    background-color: #fff;
+    border-radius: 50%;
+    content: "";
+    height: 18px;
+    left: 3px;
+    position: absolute;
+    top: 3px;
+    width: 20px;
+}
+
+.checkbox-wrapper input[type=checkbox] {
+    cursor: default;
+}
+
+.checkbox-wrapper .ikx:hover {
+    background-color: #c9cbcd;
+    transition-duration: 0s;
+}
+
+.checkbox-wrapper .ikx:checked {
+    background-color: #87aad7;
+}
+
+.checkbox-wrapper .ikx:checked::after {
+    background-color: #fff;
+    left: 25px;
+}
+
+.checkbox-wrapper :focus:not(.focus-visible) {
+    outline: 0;
+}
+
+.checkbox-wrapper .ikx:checked:hover {
+    background-color: #87aad7;
+}
+
+.p2p-button {
+    background-image: linear-gradient(to right, #a2b7c7 0%, #0d73c5  51%, #a2b7c7  100%);
+    width: 100%;
+    margin-top: 30px;
+    padding: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    border: none;
+    cursor: pointer;
+}
+
+.p2p-button:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+.p2p-people {
+    width: 71%;
+    border-radius: 10px;
+    background-color: #272a31;
+    padding: 25px;
+    flex-direction: column;
+    display: flex;
+}
+
+.sell-btc:hover {
+    background-color: #3d4864;
+}
+
+
+
+@media only screen and (max-width: 1200px) {
+    .p2p {
+        flex-direction: column;
+    }
+    .p2p-options {
+        width: 100%;
+    }
+    .p2p-people {
+        width: 100%;
+        margin-top: 20px;
+        overflow-x: scroll;
+    }
+    .p2p-container {
+        min-width: 920px;
+    }
+}

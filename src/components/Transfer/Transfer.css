@@ -1,0 +1,170 @@
+.transfer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    margin-bottom: 100px;
+}
+
+.transfer {
+    align-items: center;
+    color: #979aa1;
+    background-color: #272a31;
+    display: flex;
+    flex-direction: column;
+    border-radius: 7px;
+    width: 75%;
+    margin-top: 30px;
+}
+
+.transfer-button {
+    border: none;
+    font-weight: bold;
+    width: 11%;
+    cursor: pointer;
+    text-align: center;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    padding: 7px 0 7px 0;
+}
+
+.transfer-bold {
+    font-weight: bold;
+    color: white;
+    font-size: 17px;
+}
+
+.transfer-small {
+    font-size: 13.5px;
+}
+
+.transfer-button:hover {
+    color: #dadada;
+}
+
+.transfer-main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 60px 230px;
+}
+
+.transfer-navigation {
+    padding: 20px 0 0 25px;
+    font-size: 17px;
+    font-weight: bold;
+    color: white;
+    margin-right: auto;
+    display: flex;
+    width: 100%;
+}
+
+.transfer-data {
+    display: flex;
+    flex-direction: column;
+    width: 37%;
+    margin-right: 15%;
+}
+
+.transfer-select {
+    width: 50%;
+}
+
+.transfer-input {
+    display: flex;
+    align-items: center;
+    background-color: #15161b;
+    height: 40px;
+    width: 50%;
+    padding: 10px 15px;
+    border: 1px solid grey;
+    border-radius: 4px;
+}
+
+.transfer-button-final {
+    margin-left: auto;
+    width: 25%;
+}
+
+.transfer-history {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.transfer-history-header {
+    display: flex;
+    padding: 20px 40px;
+    color: white;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.transfer-history-data {
+    padding: 15px;
+    background: #15161b;
+    width: 96%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.transfer-warnings {
+    width: 75%;
+    margin: 20px auto 0 auto;
+}
+
+@media only screen and (max-width: 1200px) {
+    .transfer-warnings {
+        width: 95%;
+    }
+
+    .transfer-history {
+        overflow-x: scroll;
+    }
+
+    .transfer-history-header, .transfer-history-data {
+        min-width: 700px;
+    }
+
+    .transfer-button-final {
+        width: 80%;
+        margin-right: auto;
+        margin-bottom: 10px;
+    }
+
+    .transfer-select {
+        width: 80%;
+    }
+
+    .transfer-input {
+        width: 80%;
+    }
+
+    .transfer {
+        width: 95%;
+    }
+
+    .transfer-navigation {
+        padding: 20px;
+    }
+
+    .transfer-button {
+        width: 45%;
+    }
+
+    .transfer-main {
+        padding: 20px;
+    }
+
+    .transfer-item {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .transfer-data {
+        width: auto;
+        margin: 0 0 15px;
+        text-align: center;
+    }
+}

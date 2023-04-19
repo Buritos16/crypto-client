@@ -1,0 +1,301 @@
+.wallet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    margin-bottom: 100px;
+}
+
+.wallet-main {
+    align-items: center;
+    color: #979aa1;
+    display: flex;
+    flex-direction: column;
+    border-radius: 7px;
+    width: 75%;
+    margin-top: 30px;
+    justify-content: space-between;
+}
+
+.wallet-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.wallet-profile, .wallet-promo {
+    border-radius: 10px;
+    padding: 30px 20px;
+    width: 49%;
+    display: flex;
+    align-items: center;
+    background-color: #272a31;
+}
+
+.wallet-profile {
+    background: linear-gradient(120deg, #272a31 56%, #1F4690 36%);
+}
+
+.wallet-promo {
+    padding: 0;
+    background-image: linear-gradient(to right, #1F4690 0%, #1F4690 51%, #5983d3 100%);
+}
+
+.wallet-profile-item {
+    display: flex;
+    align-items: center;
+}
+
+.icon-wallet {
+    margin-right: 10px;
+}
+
+.promo-image {
+    width: 130px;
+}
+
+.promo-container {
+    margin-left: 20px;
+
+}
+
+.promo-button {
+    background-image: linear-gradient(to right, #F09819 0%, #EDDE5D 51%, #F09819 100%);
+    font-weight: bold;
+    transition: 1s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 7px;
+    border: none;
+    width: 100%;
+    display: block;
+    cursor: pointer;
+}
+
+.promo-button:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+.wallet-functional {
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.wallet-search {
+    width: 45%;
+    border-radius: 10px;
+    background: #272a31;
+    padding: 10px 20px;
+    font-size: 16px;
+    align-items: center;
+    cursor: text;
+}
+
+
+.wallet-symbol-input {
+    width: 60%;
+    margin-left: 20px;
+    font-size: 16px;
+    color: #979aa1;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.wallet-checkbox {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+}
+
+.wallet-button {
+    background-image: linear-gradient(to right, #1F4690 0%, #0090ff 51%, #1F4690 100%);
+    font-weight: bold;
+    transition: 1s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 7px;
+    border: none;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    display: block;
+    cursor: pointer;
+}
+
+.wallet-button:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+.wallet-link {
+    width: 30%;
+}
+
+.wallet-coins {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #272a31;
+    border-radius: 10px;
+}
+
+.wallet-coins-header {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #353942;
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.wallet-coins-data {
+    display: flex;
+    flex-direction: column;
+}
+
+.wallet-line {
+    border-left: 1px solid #4a4a4b;
+    height: 35px;
+    margin: 0 28px;
+}
+
+.wallet-convert-line-horizontal {
+    border-top: 1px solid #4a4a4b;
+    width: 100%;
+}
+
+.total-balance {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    margin-right: 1rem;
+}
+
+.wallet-functional-buttons {
+    width: 49%;
+}
+
+.wallet-hide {
+    display: flex;
+    align-items: center;
+    margin-left: 70px;
+}
+
+.wallet-coins-header-coins {
+    margin-left: 35px;
+}
+
+.line-coins-wallet {
+    height: 40px;
+    margin-left: auto;
+}
+
+.wallet-coins-data-name {
+    align-items: center;
+    margin-left: 35px;
+    cursor: unset;
+    display: flex;
+    padding: 5px 0;
+}
+
+.wallet-line-balance {
+    height: 40px;
+    margin-left: auto;
+    border-left: 1px solid #4a4a4b;
+    margin-right: 28px;
+}
+
+.margin-100 {
+    margin-right: 100px;
+}
+
+
+
+@media only screen and (max-width: 1200px) {
+    .margin-100 {
+        margin: 0;
+    }
+    .wallet-coins-data-name {
+        margin-left: 15px;
+    }
+
+    .wallet-balance-name {
+        width: 200px;
+    }
+    .wallet-header {
+        flex-direction: column;
+    }
+
+    .wallet-main {
+        width: 95%;
+    }
+
+    .wallet-profile {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        background: linear-gradient(180deg, #272a31 50%, #1F4690 50%);
+        margin-bottom: 20px;
+        padding: 10px;
+    }
+
+    .wallet-promo {
+        width: 100%;
+    }
+
+    .total-balance {
+        margin: 25px 0 0;
+        align-items: center;
+    }
+
+    .promo-container {
+        margin: 0;
+        width: 90px;
+    }
+
+    .wallet-functional {
+        flex-direction: column;
+    }
+
+    .wallet-functional-buttons {
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .wallet-search {
+        width: 47%;
+    }
+
+    .wallet-hide {
+        width: 47%;
+        margin: 0;
+    }
+    .wallet-coins-data, .wallet-coins-header {
+        width: fit-content;
+    }
+    .wallet-coins {
+        overflow-x: scroll;
+    }
+
+    .wallet-coins-header-coins {
+        margin-left: 15px;
+        min-width: 200px;
+    }
+
+    .line-coins-wallet {
+        margin-left: 20px;
+    }
+
+    .wallet-line-balance {
+        margin-left: 20px;
+        margin-right: 28px;
+    }
+}

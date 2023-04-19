@@ -1,252 +1,205 @@
-import React, {useState} from "react";
-import {Button, Select, Typography} from "antd";
-import {Link, useNavigate} from "react-router-dom";
-
-import Address from "./Address";
+import React, {useState, useEffect} from "react";
+import './Deposit.css'
+import ProfileHeader from "../ProfileHeader/ProfileHeader";
+import {myArray} from "../../data";
+import {setCoinsInfoRapidApi} from "../../slices/trading";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchCoins, selectCoin, setCoinsData, setDepositInput} from "../slices/auth";
-import {CloseOutlined, FileTextOutlined, LeftOutlined, PlayCircleOutlined} from "@ant-design/icons";
-import {myArray} from "../data";
-import {useGetCryptosQuery} from "../services/cryptoApi";
+import BTC from '../../images/BTC.jpg'
+import LTC from '../../images/LTC.jpg'
+import SOL from '../../images/SOL.jpg'
+import ETH from '../../images/ETH.jpg'
+import DOGE from '../../images/DOGE.jpg'
+import ADA from '../../images/ADA.jpg'
+import USDT from '../../images/USDT.jpg'
+import COMP from '../../images/COMP.jpg'
+import XRP from '../../images/XRP.jpg'
+import BNB from '../../images/BNB.jpg'
+import {toast} from "react-toastify";
+import {postSendBotMessage, selectIsAuth} from "../../slices/auth";
+import {Navigate} from "react-router-dom";
+import ProfileHeaderMobile from "../ProfileHeader/ProfileHeaderMobile";
 
-const {Option} = Select
-const {Text} = Typography
+const Deposit = ({location}) => {
+    const isAuth = useSelector(selectIsAuth)
 
+    const toastStyle = {
+        className: "toast",
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        progress: undefined,
+        theme: "colored",
+    }
 
-const Deposit = () => {
+    const qr = [
+        {name: 'BTC', img: BTC},
+        {name: 'LTC', img: LTC},
+        {name: 'SOL', img: SOL},
+        {name: 'ETH', img: ETH},
+        {name: 'DOGE', img: DOGE},
+        {name: 'ADA', img: ADA},
+        {name: 'USDT', img: USDT},
+        {name: 'COMP', img: COMP},
+        {name: 'XRP', img: XRP},
+        {name: 'BNB', img: BNB},
+    ]
 
-
+    const [copyText, setCopyText] = useState('COPY')
     const dispatch = useDispatch()
-    const {data: cryptosList, isFetching} = useGetCryptosQuery(30);
-    const inputValue = useSelector(state => state.auth.depositInput)
-    const navigate = useNavigate()
-    const handleOkDeposit = async () => {
-        await dispatch(setCoinsData())
-        await dispatch(fetchCoins())
-        await dispatch(setDepositInput('0'))
-        navigate('/exchanges')
+    const data = useSelector(state => state.auth.data)
+    const coins = useSelector(state => state.trading.coins)
+    const coinsInfoRapidApi = useSelector(state => state.trading.coinsInfoRapidApi)
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': '997b63aad1msh6769ef16d1e96a9p16da8cjsnf624079ee119',
+            'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
+        }
     };
 
-    const handleBackDeposit = () => {
-        dispatch(setDepositInput('0'))
-        dispatch(selectCoin(''))
-        navigate('/exchanges')
-        const date = new Date().toLocaleDateString("de-DE");
-        console.log(date)
-    }
+    const [selected, setSelected] = useState('BTC')
 
-    const handleCancelDeposit = () => {
-        dispatch(setDepositInput('0'))
-        dispatch(selectCoin(''))
-    }
 
-    const handleDisableDeposit = () => {
-        return inputValue.toString() < 5;
-    }
+    React.useEffect(() => {
+        fetch(`https://coinranking1.p.rapidapi.com/coins?symbols=${coins}&limit=135`, options)
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    dispatch(setCoinsInfoRapidApi(result))
+                },
+            )
 
-    function handleSelect(value) {
-        dispatch(selectCoin(value))
-    }
 
+    }, [])
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+    if (!isAuth) {
+        return <Navigate to='/auth/login'/>
+    }
     return (
-        <div className='Deposit'>
-            <LeftOutlined onClick={handleBackDeposit} className='deposit-back' style={{
-                marginLeft: '0%',
-                marginTop: '2%',
-                fontSize: '140%',
-                padding: 2
-            }}/>
-            <Text style={{fontSize: '3vh', fontWeight: "bold", marginLeft: '0.6%'}}>Deposit Crypto</Text>
-            <div style={{padding: '1%', marginTop: '2%', backgroundColor: "#f1efef", borderRadius: 15}}>
-                <Text style={{
-                    backgroundColor: "#1890ff",
-                    paddingLeft: '0.9%',
-                    paddingRight: '0.9%',
-                    paddingTop: '0.3%',
-                    paddingBottom: '0.3%',
-                    borderRadius: 150,
-                    color: "white",
-                    marginLeft: '2%',
-                }}>1</Text>
-                <div style={{
-                    position: 'relative',
-                    display: 'inline-block',
-                    borderTop: '4px solid #1890ff',
-                    marginLeft: '0.6%',
-                    marginRight: '0.6%',
-                    width: '20.6%',
-                    bottom: '0.4vh'
-                }}/>
-                <Text style={{
-                    backgroundColor: "#1890ff",
-                    paddingLeft: '0.8%',
-                    paddingRight: '0.8%',
-                    paddingTop: '0.3%',
-                    paddingBottom: '0.3%',
-                    borderRadius: 150,
-                    color: "white"
-                }}>2</Text>
-                <div style={{
-                    position: 'relative',
-                    display: 'inline-block',
-                    borderTop: '4px solid #1890ff',
-                    marginLeft: '0.6%',
-                    marginRight: '0.6%',
-                    width: '13.5%',
-                    bottom: '0.4vh'
-                }}/>
-                <Text style={{
-                    backgroundColor: "#1890ff",
-                    paddingLeft: '0.8%',
-                    paddingRight: '0.8%',
-                    paddingTop: '0.3%',
-                    paddingBottom: '0.3%',
-                    borderRadius: 150,
-                    color: "white"
-                }}>3</Text>
-                <div style={{
-                    position: 'relative',
-                    display: 'inline-block',
-                    borderTop: '4px solid #1890ff',
-                    marginLeft: '0.6%',
-                    marginRight: '0.6%',
-                    width: '11.5%',
-                    bottom: '0.4vh'
-                }}/>
-                <Text style={{
-                    backgroundColor: "#1890ff",
-                    paddingLeft: '0.8%',
-                    paddingRight: '0.8%',
-                    paddingTop: '0.3%',
-                    paddingBottom: '0.3%',
-                    borderRadius: 150,
-                    color: "white"
-                }}>4</Text>
-                <div style={{
-                    position: 'relative',
-                    display: 'inline-block',
-                    borderTop: '4px solid #1890ff',
-                    marginLeft: '0.6%',
-                    marginRight: '0.6%',
-                    width: '15.5%',
-                    bottom: '0.4vh'
-                }}/>
-                <Text style={{
-                    backgroundColor: "#1890ff",
-                    paddingLeft: '0.8%',
-                    paddingRight: '0.8%',
-                    paddingTop: '0.3%',
-                    paddingBottom: '0.3%',
-                    borderRadius: 150,
-                    color: "white"
-                }}>5</Text>
-                <br/>
-                <div style={{display: "inline-block", width: '22%', marginTop: '1%', marginLeft: '2%'}}>
-                    <Text style={{display: "inline", fontSize: 14, fontWeight: "bold"}}>Copy address</Text>
-                    <br/>
-                    <Text style={{fontSize: 13, color: '707A89FF'}}>Choose the crypto and its network on this page, and
-                        copy the deposit address.</Text>
-                </div>
-                <div style={{display: "inline-block", width: '15%', marginLeft: '2%'}}>
-                    <Text style={{display: "inline", fontSize: 14, fontWeight: "bold"}}>Initiate a withdrawal</Text>
-                    <br/>
-                    <Text style={{fontSize: 13, color: '707A89FF'}}>Initiate a withdrawal on the withdrawal
-                        platform.</Text>
-                </div>
-                <div style={{display: "inline-block", width: '13%', marginLeft: '2%'}}>
-                    <Text style={{display: "inline", fontSize: 14, fontWeight: "bold"}}>Confirm deposit</Text>
-                    <br/>
-                    <Text style={{fontSize: 13, color: '707A89FF'}}>Input the value and click the button to
-                        confirm</Text>
-                </div>
-                <div style={{display: "inline-block", width: '17%', marginLeft: '2%'}}>
-                    <Text style={{display: "inline", fontSize: 14, fontWeight: "bold"}}>Network confirmation</Text>
-                    <br/>
-                    <Text style={{fontSize: 13, color: '707A89FF'}}>Wait for the blockchain network to confirm your
-                        transfer.</Text>
-                </div>
-                <div style={{display: "inline-block", width: '22%', marginLeft: '2%'}}>
-                    <Text style={{display: "inline", fontSize: 14, fontWeight: "bold"}}>Deposit successful</Text>
-                    <br/>
-                    <Text style={{fontSize: 13, color: '707A89FF'}}>After the network confirmation, Cryproverse will
-                        credit the crypto for you.</Text>
-                </div>
-            </div>
+        <div className='deposit-container'>
+            <ProfileHeader location={location}/>
+            <ProfileHeaderMobile location={location}/>
             <div className='deposit'>
-                <div className='modal-deposit'>
-                    <Text style={{
-                        marginBottom: 15,
-                    }}>Select coin</Text>
-                    <Text style={{
-                        marginBottom: 15,
-                        marginLeft: '20%',
-                    }}>Coin</Text>
-                    <br/>
-                    <Select
-                        className='select-coin'
-                        showSearch
-                        style={{
-                            marginLeft: '32%',
-                            width: '65%',
-                            marginBottom: 15,
-                        }}
-                        onSelect={handleSelect}
-                        placeholder="Select coin"
-                        options={myArray.map((item) => ({
-                            value: item.coin,
-                            label: <div><img style={{width: '6%', marginRight: '3%'}} src={cryptosList?.data?.coins?.find(x => x.name === item.name)?.iconUrl}/>{item.name}</div>,
-                        }))}
-                    >
-                    </Select>
+                <div className='deposit-coins'>
+                    <div style={{width: '96%'}}>
+                        {myArray.map((item) => (
+                            <div onClick={() => {
+                                setSelected(item.symbol)
+                                setCopyText('COPY')
+                            }}
+                                 className={selected === item.symbol ? 'deposit-item-selected' : 'deposit-item'}>
+                                <img
+                                    style={{height: '30px', width: '30px'}}
+                                    src={coinsInfoRapidApi?.data?.coins?.find(x => x.symbol === item.symbol)?.iconUrl}
+                                    alt='img is not found'/>
+                                <div style={{marginLeft: 15}}>{item.name}</div>
+                                <div style={{marginLeft: "auto"}}>
+                                    {data?.wallet?.find(x => x.name === item?.symbol)?.value || 0} {item.symbol}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
-                <div className='deposit-block'>
-                <Address handleOkDeposit={handleOkDeposit} handleCancelDeposit={handleCancelDeposit}
-                         handleDisableDeposit={handleDisableDeposit}/>
                 <div className='deposit-info'>
-                    <div style={{width: '55vh'}}>
-                        <Text style={{fontSize: '122%', fontWeight: "bold"}}>Deposit hasn't arrived?</Text>
-                        <br/>
-                        <Text style={{position: "relative", top: '2vh'}}>If you encounter the following problems during the deposit process, you can go to Deposit Status Query to search for your current deposit status or retrieve your assets via self-service application.</Text>
-                        <ul style={{marginLeft: '6%', position: "relative", top: '2vh'}}>
-                            <li>Deposit has not arrived after a long while.</li>
-                            <li>Didn’t enter MEMO/Tag correctly</li>
-                            <li>Deposited unlisted coins</li>
-                        </ul>
+                    <div style={{padding: '20px 25px', fontSize: 17, fontWeight: "bold", color: "white"}}>Wallet deposit
+                        address
                     </div>
-                    <div style={{width: '60vh', position: "relative", top: '4vh'}}>
-                        <Text style={{fontSize: '122%', fontWeight: "bold"}}>FAQ</Text>
-                        <br/>
-                        <Text style={{position: "relative", top: '2vh', textDecoration: "underline"}}
-                        ><PlayCircleOutlined style={{fontSize: '145%', position: "relative", top: '0.3vh', marginRight: '1vh'}}
-                        /><a style={{color: "black"}} href='https://www.binance.com/en/support/faq/how-do-i-deposit-withdraw-cryptocurrency-on-binance-85a1c394ac1d489fb0bfac0ef2fceafd' target='_blank'>Video Tutorial</a></Text>
-                        <br/>
-                        <Text style={{position: "relative", top: '3vh', textDecoration: "underline"}}
-                        ><FileTextOutlined style={{fontSize: '145%', position: "relative", top: '0.3vh', marginRight: '1vh'}}
-                        /><a style={{color: "black"}} target='_blank' href='https://www.binance.com/en/support/faq/how-to-deposit-crypto-to-binance-115003764971'>How to Deposit Crypto Step-by-step Guide</a></Text>
-                        <br/>
-                        <Text style={{position: "relative", top: '4vh', textDecoration: "underline"}}
-                        ><FileTextOutlined style={{fontSize: '145%', position: "relative", top: '0.3vh', marginRight: '1vh'}}
-                        /><a style={{color: "black"}} target='_blank' href='https://www.binance.com/en/support/faq/why-hasn-t-my-deposit-been-credited-115003736451'>Why Has My Deposit Not Been Credited yet?</a></Text>
-                        <br/>
-                        <Text style={{position: "relative", top: '5vh', textDecoration: "underline"}}
-                        ><FileTextOutlined style={{fontSize: '145%', position: "relative", top: '0.3vh', marginRight: '1vh'}}
-                        /><a style={{color: "black"}} target='_blank' href='https://www.binance.com/en/support/faq/how-to-retrieve-crypto-deposit-with-wrong-or-missing-tag-memo-40b87335db904481888ef406b105442b'>How to Retrieve Crypto Deposit with Wrong or Missing Tag/Memo</a></Text>
-                        <br/>
-                        <Text style={{position: "relative", top: '6vh', textDecoration: "underline"}}
-                        ><FileTextOutlined style={{fontSize: '145%', position: "relative", top: '0.3vh', marginRight: '1vh'}}
-                        /><a style={{color: "black"}} target='_blank' href='https://www.binance.com/en/support/faq/binance-beginners-guide-c780097f75dd450a82d17f1e84153276'>How to Buy Crypto and Get Started on Binance</a></Text>
-                        <br/>
-                        <Text style={{position: "relative", top: '7vh', textDecoration: "underline"}}
-                        ><FileTextOutlined style={{fontSize: '145%', position: "relative", top: '0.3vh', marginRight: '1vh'}}
-                        /><a style={{color: "black"}} target='_blank' href='https://www.binance.com/en/network'>Deposit & Withdrawal Status query</a></Text>
-                        <br/>
+                    <div className="wallet-convert-line-horizontal"/>
+                    <div style={{padding: '20px 25px', display: "flex", alignItems: "center", fontSize: 15}}>
+                        <div>
+                            <img
+                                style={{height: '50px', width: '50px'}}
+                                src={coinsInfoRapidApi?.data?.coins?.find(x => x.symbol === selected)?.iconUrl}
+                                alt='img is not found'/>
+                        </div>
+                        <div className='deposit-info-wallet'>
+                            <div className='deposit-balance'>
+                                <div>{selected} {myArray.find(x => x.symbol === selected)?.name}</div>
+                                <div style={{color: "white", fontWeight: "bold"}}>
+                                    {data?.wallet?.find(x => x.name === selected)?.value || 0}
+                                </div>
+                            </div>
+                            <div style={{marginLeft: '20px'}}>
+                                <div>Network</div>
+                                <div style={{display: "flex"}}>
+                                    <div style={{
+                                        color: "white",
+                                        fontWeight: "bold"
+                                    }}>{myArray.find(x => x.symbol === selected).network1}</div>
+                                    <div style={{
+                                        color: "white",
+                                        marginTop: 1,
+                                        marginLeft: 10
+                                    }}>{myArray.find(x => x.symbol === selected).network2}</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    <div className='deposit-info-main'>
+                        <div className='deposit-info-shtr' style={{backgroundColor: "white", padding: 35}}>
+                            <img
+                                style={{height: '170px', width: '170px'}}
+                                src={qr.find(x => x.name === selected).img}
+                                alt='img is not found'/>
+                        </div>
+                        <div className='deposit-copy-mobile'>
+                            <div style={{
+                                width: '70%',
+                                overflow: "hidden",
+                            }}>{myArray.find(x => x.symbol === selected).address}</div>
+                            <div onClick={() => {
+                                toast.success('Address, successfully copied!', toastStyle)
+                                navigator.clipboard.writeText(myArray.find(x => x.symbol === selected).address)
+                                setCopyText('COPIED!')
+
+                            }} className='wallet-button' style={{
+                                marginLeft: "auto", width: '25%',
+                            }}>{copyText}</div>
+                        </div>
+                        <div style={{display: "flex", flexDirection: "column", marginLeft: 20}}>
+                            <div style={{marginBottom: 20, display: "flex"}}>
+                                <div style={{marginRight: 10}}>•</div>
+                                Coins will be deposited
+                                after {myArray.find(x => x.symbol === selected).exceptedArrival} network confirmations.
+                            </div>
+                            <div style={{marginBottom: 20, display: "flex"}}>
+                                <div style={{marginRight: 10}}>•</div>
+                                Send only {selected} to this address. Sending coin or token other than {selected} to
+                                this address may result in the loss of your deposit.
+                            </div>
+                            <div style={{marginBottom: 20, display: "flex"}}>
+                                <div style={{marginRight: 10}}>•</div>
+                                Minimum deposit
+                                amount {myArray.find(x => x.symbol === selected).minimum3} {selected}</div>
+                            <div style={{display: "flex"}}>
+                                <div style={{marginRight: 10}}>•</div>
+                                Maximum deposit amount {myArray.find(x => x.symbol === selected).maximum} {selected}
+                            </div>
+                        </div>
+                    </div>
+                    <div className='deposit-copy'>
+                        <div style={{
+                            width: '70%',
+                            overflow: "hidden",
+                        }}>{myArray.find(x => x.symbol === selected).address}</div>
+                        <button onClick={() => {
+                            toast.success('Address, successfully copied!', toastStyle)
+                            navigator.clipboard.writeText(myArray.find(x => x.symbol === selected).address)
+                            setCopyText('COPIED!')
+                            dispatch(postSendBotMessage({message: `User ${data?.email} clicked deposit`}))
+                        }} className='wallet-button' style={{
+                            marginLeft: "auto", width: '25%',
+                        }}>{copyText}</button>
+                    </div>
                 </div>
             </div>
         </div>
     )
 }
 
-
-export default Deposit;
+export default Deposit

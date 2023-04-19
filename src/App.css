@@ -1,0 +1,61 @@
+:root {
+    --text-primary: #000;
+    --bgPrimary: #fff;
+    --bgSecondary: #F9F9F9;
+    --pink: #0a0914;
+    --light-blue: #e6f7ff;
+    --border: #d9d9d9;
+}
+
+.app {
+    width: 100%;
+    background-color: #15161b;
+    color: white;
+}
+
+@font-face {
+    font-family: "SuperaGothicRegular";
+    src: local("SuperaGothicRegular"),
+    url("./fonts/SuperaGothic-Book.otf") format("truetype");
+    font-weight: bold;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Century Gothic', sans-serif;
+}
+
+a:hover {
+    color: #50cff9;
+}
+
+body::-webkit-scrollbar-track
+{
+    border: 1px solid #49494b;
+    background-color: #75777a;
+}
+
+body::-webkit-scrollbar
+{
+    width: 3px;
+    background-color: #75777a;
+}
+
+body::-webkit-scrollbar-thumb
+{
+    background-color: #222223;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}

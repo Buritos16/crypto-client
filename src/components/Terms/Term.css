@@ -1,0 +1,21 @@
+.term {
+    width: 75%;
+    background-color: #272a31;
+    padding: 40px;
+    margin: 100px auto;
+    border-radius: 15px;
+    color: #979aa1;
+    font-size: 16px;
+}
+
+.link-policy {
+    overflow: initial;
+}
+
+@media only screen and (max-width: 1200px) {
+    .term {
+        width: 95%;
+        padding: 20px 35px;
+        margin-top: 30px;
+    }
+}
