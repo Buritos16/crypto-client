@@ -2,11 +2,11 @@ import React, {useEffect, useState} from "react";
 import './Settings.css'
 import {useDispatch, useSelector} from "react-redux";
 import {Link, Navigate} from "react-router-dom";
-import verification from '../../images/verification.webp'
-import svgV from '../../images/fl-br-block.svg'
+import verification from '../../assets/verification.webp'
+import svgV from '../../assets/fl-br-block.svg'
 import {toast} from "react-toastify";
 import {patchPersonalInformation, selectIsAuth, setPersonalInformation} from "../../slices/auth";
-import Loader from "../Loader/Loader";
+import Loader from "../../components/Loader/Loader";
 
 
 const Settings = () => {

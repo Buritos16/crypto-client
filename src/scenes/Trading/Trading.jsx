@@ -2,7 +2,7 @@ import React, {memo, useEffect, useRef, useState} from "react";
 import './Trading.css'
 import {useDispatch, useSelector} from "react-redux";
 import {toast} from 'react-toastify';
-import Chart from "../Chart";
+import Chart from "../../components/Chart";
 import {
     ArrowDownOutlined,
     ArrowUpOutlined,
@@ -20,7 +20,7 @@ import {
     setWallet,
     updateOpenOrders
 } from "../../slices/auth";
-import Loader from "../Loader/Loader";
+import Loader from "../../components/Loader/Loader";
 import {Navigate} from "react-router-dom";
 
 const {commas} = require('number-prettier')

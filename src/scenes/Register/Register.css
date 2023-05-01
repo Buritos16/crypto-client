@@ -1,15 +1,15 @@
-.login-container {
+.register-container {
     height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
-    background-image: url("/src/images/bg-login.svg");
+    background-image: url("/src/assets/bg-login.svg");
     background-repeat: no-repeat;
     background-size: cover;
     animation: pan 6s infinite alternate linear;
 }
 
-.login-card {
+.register-card {
     -webkit-animation: bounce-in-top 1.1s both;
     animation: bounce-in-top 1.1s both;
     width: 30%;
@@ -25,11 +25,11 @@
 }
 
 
-.login-form {
+.register-form {
     width: 100%;
 }
 
-.fieldset {
+.register-fieldset {
     transition-duration: 0.5s;
     height: 55px;
     border: 2px solid #979aa1;
@@ -42,18 +42,31 @@
     cursor: text;
 }
 
-.login-line {
+.register-fieldset-name {
+    transition-duration: 0.5s;
+    height: 55px;
+    border: 2px solid #979aa1;
+    border-radius: 60px;
+    font-size: 16px;
+    padding-left: 18px;
+    display: flex;
+    align-items: center;
+    padding-bottom: 8px;
+    cursor: text;
+}
+
+.register-line {
     border-left: 1px solid #979aa1;
     height: 22px;
     margin-right: 20px;
     margin-left: 5px;
 }
 
-.fieldset:hover {
+.register-fieldset:hover {
     border: 2px solid #50cff9;
 }
 
-.legend {
+.register-legend {
     margin-left: 15px;
     margin-bottom: 0;
     width: auto;
@@ -61,17 +74,8 @@
     color: #fff;
 }
 
-.forgot-password {
-    width: 154px;
-    cursor: pointer;
-    transition-duration: 0.5s;
-    color: #41b8ff;
-}
-.forgot-password:hover {
-    color: #afdfff;
-}
 
-.login-input {
+.register-input {
     background: transparent;
     border: none;
     outline: none;
@@ -86,16 +90,18 @@
     cursor: pointer;
     transition-duration: 0.5s;
 }
+
 .login-register:hover {
     color: #afdfff;
 }
+
 .icon-login {
     margin-right: 10px;
     font-size: 19px;
 }
 
-.login-button {
-    background-image: linear-gradient(to right, #10abff 0%, #beedff 51%, #10abff  100%);
+.register-button {
+    background-image: linear-gradient(to right, #10abff 0%, #beedff 51%, #10abff 100%);
     width: 100%;
     padding: 15px;
     margin-top: 25px;
@@ -111,13 +117,13 @@
     cursor: pointer;
 }
 
-.login-button:hover {
+.register-button:hover {
     background-position: right center; /* change the direction of the change here */
     color: #fff;
     text-decoration: none;
 }
 
-.login-error {
+.register-error {
     font-size: 12px;
     margin-left: 20px;
     margin-top: 5px;
@@ -126,15 +132,50 @@
     color: #e76565;
 }
 
+.register-title {
+    font-size: 30px;
+    margin-bottom: 10px;
+    align-self: flex-start;
+    font-weight: bold;
+}
+
+.register-item {
+    display: flex;
+    flex-direction: column;
+    width: 47%;
+}
+
+.register-terms {
+    display: flex;
+    margin-left: 10px;
+}
+
 @media only screen and (max-width: 1200px) {
-    .login-card {
+    .register-terms {
+        font-size: 11.5px;
+    }
+
+    .register-title {
+        font-size: 22px;
+    }
+
+    .register-card {
         width: 90%;
+    }
+
+    .form-register {
+        flex-direction: column;
+    }
+
+    .register-item {
+        width: 100%;
     }
 }
 
-
 @keyframes pan {
-    100% { background-position: 15% 50% }
+    100% {
+        background-position: 15% 50%
+    }
 }
 
 @-webkit-keyframes bounce-in-top {
@@ -189,6 +230,7 @@
         animation-timing-function: ease-out;
     }
 }
+
 @keyframes bounce-in-top {
     0% {
         -webkit-transform: translateY(-500px);

@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import './P2P.css'
 import {CaretDownOutlined, UserOutlined} from "@ant-design/icons";
 import {useSelector} from "react-redux";
-import {p2p} from '../../data'
+import {p2p} from '../../data/data'
 import {toast} from "react-toastify";
 import {selectIsAuth} from "../../slices/auth";
 import {Navigate} from "react-router-dom";

@@ -1,6 +1,6 @@
 import React, {useRef, useState, useEffect} from "react";
 import './Wallet.css'
-import gift from '../../images/card-img-right.png'
+import gift from '../../assets/card-img-right.png'
 import {NumberOutlined, SearchOutlined, UserOutlined} from "@ant-design/icons";
 import {FaUser} from "react-icons/fa";
 import {IoMdMail} from "react-icons/io";

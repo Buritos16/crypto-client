@@ -1,13 +1,13 @@
 import React, {useState, useEffect} from "react";
 import './Withdraw.css'
-import successful from '../../images/tick.png'
+import successful from '../../assets/tick.png'
 import ProfileHeader from "../ProfileHeader/ProfileHeader";
-import {myArray} from "../../data";
+import {myArray} from "../../data/data";
 import {setCoinsInfoRapidApi} from "../../slices/trading";
 import {useDispatch, useSelector} from "react-redux";
 import {ImArrowRight} from "react-icons/im";
 import {toast} from "react-toastify";
-import Loader from "../Loader/Loader";
+import Loader from "../../components/Loader/Loader";
 import {
     patchTransactions,
     patchWallet,

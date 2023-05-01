@@ -7,8 +7,8 @@ import {CaretDownOutlined, DownOutlined} from "@ant-design/icons";
 import {useDispatch, useSelector} from "react-redux";
 import {toast} from "react-toastify";
 import { patchWallet, selectIsAuth, setWallet} from "../../slices/auth";
-import Loader from "../Loader/Loader";
-import successful from "../../images/tick.png";
+import Loader from "../../components/Loader/Loader";
+import successful from "../../assets/tick.png";
 import {Link, Navigate} from "react-router-dom";
 
 const Swap = () => {

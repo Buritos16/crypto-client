@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import './Header.css'
-import logo from '../../images/logo.png';
-import logoText from '../../images/text.png';
+import logo from '../../assets/logo.png';
+import logoText from '../../assets/text.png';
 import {
     BankOutlined,
     BarChartOutlined,

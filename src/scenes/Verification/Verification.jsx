@@ -5,7 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {CaretDownOutlined, ClockCircleOutlined, ExclamationCircleOutlined} from "@ant-design/icons";
 import {InboxOutlined} from '@ant-design/icons';
 import {message, Upload} from 'antd';
-import {countries} from "../../data";
+import {countries} from "../../data/data";
 import {patchVerification, selectIsAuth, setVerification} from "../../slices/auth";
 import {Navigate} from "react-router-dom";
 

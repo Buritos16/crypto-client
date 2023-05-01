@@ -13,6 +13,13 @@
     color: white;
 }
 
+.app-loader {
+    height: 100vh;
+    background-color: #15161b;
+    display: flex;
+    align-items: center;
+}
+
 @font-face {
     font-family: "SuperaGothicRegular";
     src: local("SuperaGothicRegular"),

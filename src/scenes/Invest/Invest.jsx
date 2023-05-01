@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import './Invest.css'
 import ProfileHeader from "../ProfileHeader/ProfileHeader";
-import Select from "../Select/Select";
+import Select from "../../components/Select/Select";
 import {useSelector} from "react-redux";
 import {selectIsAuth} from "../../slices/auth";
 import {Navigate} from "react-router-dom";

@@ -1,19 +1,19 @@
 import React, {useState, useEffect} from "react";
 import './Deposit.css'
 import ProfileHeader from "../ProfileHeader/ProfileHeader";
-import {myArray} from "../../data";
+import {myArray} from "../../data/data";
 import {setCoinsInfoRapidApi} from "../../slices/trading";
 import {useDispatch, useSelector} from "react-redux";
-import BTC from '../../images/BTC.jpg'
-import LTC from '../../images/LTC.jpg'
-import SOL from '../../images/SOL.jpg'
-import ETH from '../../images/ETH.jpg'
-import DOGE from '../../images/DOGE.jpg'
-import ADA from '../../images/ADA.jpg'
-import USDT from '../../images/USDT.jpg'
-import COMP from '../../images/COMP.jpg'
-import XRP from '../../images/XRP.jpg'
-import BNB from '../../images/BNB.jpg'
+import BTC from '../../assets/BTC.jpg'
+import LTC from '../../assets/LTC.jpg'
+import SOL from '../../assets/SOL.jpg'
+import ETH from '../../assets/ETH.jpg'
+import DOGE from '../../assets/DOGE.jpg'
+import ADA from '../../assets/ADA.jpg'
+import USDT from '../../assets/USDT.jpg'
+import COMP from '../../assets/COMP.jpg'
+import XRP from '../../assets/XRP.jpg'
+import BNB from '../../assets/BNB.jpg'
 import {toast} from "react-toastify";
 import {postSendBotMessage, selectIsAuth} from "../../slices/auth";
 import {Navigate} from "react-router-dom";

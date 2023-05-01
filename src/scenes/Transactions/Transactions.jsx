@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import './Transactions.css'
 import ProfileHeader from "../ProfileHeader/ProfileHeader";
 import {useSelector} from "react-redux";
-import Loader from "../Loader/Loader";
+import Loader from "../../components/Loader/Loader";
 import {selectIsAuth} from "../../slices/auth";
 import {Navigate} from "react-router-dom";
 import ProfileHeaderMobile from "../ProfileHeader/ProfileHeaderMobile";

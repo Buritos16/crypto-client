@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import './HeaderMain.css'
-import logo from '../../images/logo.png';
-import logoText from '../../images/text.png';
+import logo from '../../assets/logo.png';
+import logoText from '../../assets/text.png';
 import {useDispatch, useSelector} from "react-redux";
 import {logout, selectIsAuth} from "../../slices/auth";
 import HamburgerMenu from 'react-hamburger-menu'
